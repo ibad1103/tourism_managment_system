@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Countries
+{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-semibold mb-6 text-center text-gray-800">Explore</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+    {% for page in pages %}
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+            <img class="w-full h-48 object-cover" src="{{ page.image.url }}" alt="{{ page.name }}">
+            <div class="p-5 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">{{ page.name }}</h3>
+
+                <div class="flex flex-col gap-3">
+                    <a href="{% url 'page_detail' page.id %}">
+                        <button type="button"
+                            class="w-full px-4 py-2 text-sm font-semibold rounded-md text-white bg-orange-600 hover:bg-orange-700 transition-colors">
+                            View Details
+                        </button>
+                    </a>
+
+                    <a href="{% url 'page_destinations' page.id %}">
+                        <button type="button"
+                            class="w-full px-4 py-2 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+                            Tourist Destinations
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center text-gray-600 col-span-full">No pages found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

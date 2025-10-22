@@ -1,0 +1,19 @@
+/* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    /* FIXED: use valid color name or hex (light-green was invalid) */
+    background-color: lightgreen;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    color: #2e7d32; /* dark green */
+    margin-top: 50px;
+}
+
+p {
+    color: #444;
+    font-size: 18px;
+}

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Booking Successful{% endblock %}
+{% block content %}
+<div class="text-center py-12">
+  <h1 class="text-3xl font-bold text-green-700">Booking Successful!</h1>
+  <p class="mt-4">We’ll contact you soon with your trip details.</p>
+  <a href="{% url 'trips_home' %}" class="mt-6 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+    Back to Trips
+  </a>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- FIXED: correct viewport meta name -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Default value{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    {% tailwind_css %}
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="bg-gray-100 text-gray-900 transition-colors duration-300">
+
+    <!-- NAVBAR -->
+    <nav class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+            <a href="{% url 'home' %}" class="text-xl font-bold text-black">🌍 Home</a>
+
+
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="p-6">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% load django_browser_reload %}
+    {% django_browser_reload_script %}
+
+    <!-- SCRIPT: mobile menu toggle -->
+   
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Travel Advice - {{ page.name }}
+{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white rounded shadow p-6">
+    <h2 class="text-2xl font-bold text-center mb-4">
+        Travel Advice for {{ page.name }}
+    </h2>
+
+    {% if guideline %}
+        <div class="bg-green-50 border border-green-300 rounded p-4">
+            <p><strong>Safety Status:</strong> {{ guideline.safety_level  }}</p>
+            <p class="mt-2">{{ guideline.advice  }}</p>
+        </div>
+    {% else %}
+        <p class="text-gray-500"><em>No travel advice available yet.</em></p>
+    {% endif %}
+
+    <div class="mt-6 text-center">
+        <a href="{% url 'page_detail' page.id %}"
+           class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            ⬅ Back to {{ page.name }}
+        </a>
+    </div>
+</div>
+{% endblock %}

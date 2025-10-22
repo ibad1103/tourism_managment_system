@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Tourist Destinations{% endblock %}
+
+{% block content %}
+  <h1 class="text-3xl font-semibold mb-6 text-center text-gray-800">
+    Tourist Destinations in {{ page.name }}
+  </h1>
+
+  {% if destinations %}
+    <ul class="space-y-4">
+      {% for destination in destinations %}
+        <li class="p-4 border rounded-xl shadow-md bg-white hover:shadow-lg transition-shadow duration-300">
+          <h2 class="text-xl font-bold text-gray-800">{{ destination.name }}</h2>
+          <p class="text-gray-600 mt-1">{{ destination.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-gray-600 text-center mt-4">
+      No tourist destinations added yet for this country.
+    </p>
+  {% endif %}
+
+  <!-- Modern Back Button -->
+  <div class="mt-6 text-center">
+         <a href="{% url 'all_pages' %}"
+           class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            ⬅ Back
+        </a>
+    </div>
+  </div>
+{% endblock %}
